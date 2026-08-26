@@ -1,4 +1,5 @@
 // src/components/portfolio/HeroSection.tsx
+"use client";
 import {
   HeroSection as HeroSectionType,
   AboutSection as AboutSectionType,
@@ -7,6 +8,7 @@ import {
 import Image from "next/image";
 import { ArrowRightIcon, FileText, MapPin } from "lucide-react";
 import { DynamicIcon } from "../admin/DynamicIcon";
+import { useResumeModal } from "@/context/ResumeModalContext";
 
 interface HeroSectionProps {
   heroData: HeroSectionType | null;
@@ -20,6 +22,8 @@ export function HeroSection({
   socialLinks,
 }: HeroSectionProps) {
   const regularLinks = socialLinks?.filter((link) => !link.isPrimary) || [];
+
+  const { openResume } = useResumeModal();
 
   return (
     <section id="hero" className="space-y-6">
@@ -61,10 +65,10 @@ export function HeroSection({
             <div className="flex flex-wrap items-center gap-3 pt-2">
               {heroData?.primaryCtaUrl && (
                 <a
-                  href={heroData.primaryCtaUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 bg-yellow-300 !text-black text-[11px] sm:text-xs font-black uppercase border-2 border-black shadow-[3px_3px_0px_0px_#000] hover:bg-yellow-200 hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
+                  className="flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 bg-yellow-300 !text-black text-[11px] sm:text-xs font-black uppercase border-2 border-black shadow-[3px_3px_0px_0px_#000] hover:bg-yellow-200 hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                  onClick={() => openResume(heroData.primaryCtaUrl)}
                 >
                   <span>{heroData.primaryCtaText || "View Resume"}</span>
                   <FileText className="size-4" />

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Terminal, ArrowUpRight, Menu, X } from "lucide-react";
 import { HeroSection as HeroSectionType } from "@/app/generated/prisma/client";
 import { ThemeToggle } from "./ThemeToggle";
+import { useResumeModal } from "@/context/ResumeModalContext";
 
 interface NavBarProps {
   heroData: HeroSectionType | null;
@@ -12,6 +13,7 @@ interface NavBarProps {
 
 export function NavBar({ heroData }: NavBarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { openResume } = useResumeModal();
 
   const handleLogoClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     if (window.location.pathname === "/") {
@@ -103,15 +105,14 @@ export function NavBar({ heroData }: NavBarProps) {
           <ThemeToggle />
 
           {heroData?.primaryCtaUrl && (
-            <a
-              href={heroData.primaryCtaUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1 bg-emerald-300 border-2 border-black text-xs font-black uppercase shadow-[2px_2px_0px_0px_#000] hover:bg-emerald-200 hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all dark:text-black"
+            <button
+              type="button"
+              onClick={() => openResume(heroData.primaryCtaUrl)}
+              className="flex items-center gap-1.5 px-3 py-1 bg-emerald-300 border-2 border-black text-xs font-black uppercase shadow-[2px_2px_0px_0px_#000] hover:bg-emerald-200 hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all dark:text-black cursor-pointer"
             >
               <span>Resume</span>
               <ArrowUpRight className="size-3.5" />
-            </a>
+            </button>
           )}
 
           <button

@@ -2,6 +2,7 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/portfolio/ThemeProvider";
 import "./globals.css";
+import { ResumeModalProvider } from "@/context/ResumeModalContext";
 
 export const metadata = {
   title: "Sanket Kumbhar | Full Stack Developer",
@@ -30,7 +31,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <ResumeModalProvider>{children}</ResumeModalProvider>
           </ThemeProvider>
         </body>
       </html>
