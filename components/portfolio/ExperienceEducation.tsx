@@ -120,8 +120,8 @@ export function ExperienceEducation({
                     </div>
                   </div>
                   {edu.grade && (
-                    <span className="inline-flex items-center gap-1 bg-purple-100 border border-black px-2 py-1 text-xs font-black text-purple-900 uppercase">
-                      <Award className="size-3" />
+                    <span className="inline-flex items-center gap-1 bg-purple-200 dark:bg-purple-300 border border-black text-[10px] font-black dark:text-black uppercase px-2 py-0.5 shadow-[1px_1px_0px_0px_#000] ">
+                      <Award className="size-3 dark:text-black" />
                       {edu.grade}
                     </span>
                   )}

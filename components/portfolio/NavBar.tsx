@@ -74,13 +74,13 @@ export function NavBar({ heroData }: NavBarProps) {
   return (
     <header
       id="portfolio-navbar"
-      className="sticky w-full top-0 z-40 bg-white/95 backdrop-blur border-b-2 border-black px-4 sm:px-8 py-3"
+      className="sticky w-full top-0 z-40 bg-white/90 backdrop-blur border-b-2 border-black px-4 sm:px-8 py-3"
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 border-black">
         <Link
           href="/"
           onClick={handleLogoClick}
-          className="flex items-center gap-2 border-2 border-black bg-yellow-300 px-2.5 py-1 text-xs font-black uppercase shadow-[2px_2px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
+          className="flex items-center gap-2 border-2 border-black bg-yellow-300 px-2.5 py-1 text-xs font-black uppercase shadow-[2px_2px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all dark:text-black"
         >
           <Terminal className="size-3.5" />
           <span>{heroData?.name ? heroData.name.split(" ")[0] : "DEV"}.OS</span>
@@ -92,7 +92,7 @@ export function NavBar({ heroData }: NavBarProps) {
               key={item.href}
               href={item.href}
               onClick={(event) => handleNavClick(event, item.href)}
-              className={`border-2 border-black bg-zinc-100 px-3 py-2 shadow-[2px_2px_0px_0px_#000] hover:bg-yellow-300 hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all`}
+              className={`border-2 border-black bg-zinc-100 px-3 py-2 shadow-[2px_2px_0px_0px_#000] hover:bg-yellow-300 hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all dark:text-black`}
             >
               {item.label}
             </a>
@@ -107,7 +107,7 @@ export function NavBar({ heroData }: NavBarProps) {
               href={heroData.primaryCtaUrl}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1 bg-emerald-300 border-2 border-black text-xs font-black uppercase shadow-[2px_2px_0px_0px_#000] hover:bg-emerald-200 hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
+              className="flex items-center gap-1.5 px-3 py-1 bg-emerald-300 border-2 border-black text-xs font-black uppercase shadow-[2px_2px_0px_0px_#000] hover:bg-emerald-200 hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all dark:text-black"
             >
               <span>Resume</span>
               <ArrowUpRight className="size-3.5" />
